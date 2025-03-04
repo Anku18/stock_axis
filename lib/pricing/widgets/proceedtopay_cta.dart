@@ -21,7 +21,7 @@ class ProceedToPayCTA extends StatelessWidget {
               vertical: VisualDensity.minimumDensity,
               horizontal: VisualDensity.minimumDensity),
           title: Obx(() => Text(
-                "Rs. ${pricingController.totalPricing.value.toStringAsFixed(showFraction ? 2 : 0)}",
+                "Rs.${pricingController.totalPricing.value.toStringAsFixed(showFraction ? 2 : 0)}",
                 style:
                     const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
               )),
