@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart' as getx;
@@ -20,12 +19,7 @@ class ApiService {
   }) async {
     try {
       Response response;
-      final List<ConnectivityResult> connectivityResult =
-          await (Connectivity().checkConnectivity());
 
-      if (connectivityResult.contains(ConnectivityResult.none)) {
-        return (null, ApiErrorStatus.noInternetConnection);
-      }
       switch (method.toUpperCase()) {
         case 'GET':
           response = await dio!.get(endpoint, queryParameters: params);

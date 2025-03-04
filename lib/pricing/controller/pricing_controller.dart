@@ -1,3 +1,4 @@
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:get/get.dart';
 import 'package:stock_axis/pricing/apis/pricing_api.dart';
 import 'package:stock_axis/pricing/models/pricing_data_model.dart';
@@ -50,6 +51,13 @@ class PricingController extends GetxController {
   }
 
   Future<void> getAllPricingDetail() async {
+    final List<ConnectivityResult> connectivityResult =
+        await (Connectivity().checkConnectivity());
+
+    if (connectivityResult.contains(ConnectivityResult.none)) {
+      // showNoInternetDialog(onTryAgain: getAllPricingDetail);
+      return;
+    }
     Future.wait([
       PricingApi.instance.getLittleMasterPricingList(pricingController: this),
       PricingApi.instance
