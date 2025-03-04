@@ -21,8 +21,14 @@ class ProceedToPayCTA extends StatelessWidget {
               vertical: VisualDensity.minimumDensity,
               horizontal: VisualDensity.minimumDensity),
           title: Obx(() => Text(
-              "Rs. ${pricingController.totalPricing.value.toStringAsFixed(showFraction ? 2 : 0)}")),
-          subtitle: const Text('Inclusive GST'),
+                "Rs. ${pricingController.totalPricing.value.toStringAsFixed(showFraction ? 2 : 0)}",
+                style:
+                    const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+              )),
+          subtitle: const Text(
+            'Inclusive GST',
+            style: TextStyle(fontSize: 12, color: Colors.grey),
+          ),
           trailing: CustomButton(
               onPressed: () {
                 // PROCEED TO PAYMENT CTA
